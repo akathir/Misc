@@ -1,6 +1,6 @@
 # Challenge for Business Intelligence Analyst
-Date - 1/5/2020
-Link - https://www.notion.so/Challenge-for-98089dfacedc40bdb5f7c47500297af6
+* Date - 1/5/2020
+* Link - https://www.notion.so/Challenge-for-98089dfacedc40bdb5f7c47500297af6
 
 ## Table of Contents
 * [General info](#general-info)
@@ -13,9 +13,9 @@ Link - https://www.notion.so/Challenge-for-98089dfacedc40bdb5f7c47500297af6
 
 ## Instructions
 ### Before getting started, I would like to talk about the two folders in this location
-* [my directory](Query_output_in_preferred_column_format_YYYY-MM)
+* [Query_output_in_preferred_column_format_YYYY-MM](Query_output_in_preferred_column_format_YYYY-MM)
 	* This is what you asked in the challange
-* [my directory](Query_output_with_column_in_month_number_format)
+* [Query_output_with_column_in_month_number_format](Query_output_with_column_in_month_number_format)
 	* This is something I did out of curiosity. This query outputs both cohort and cohort percentage tables.
 
 ### Steps
@@ -36,7 +36,7 @@ Link - https://www.notion.so/Challenge-for-98089dfacedc40bdb5f7c47500297af6
 * Step 4 - Execute the query!
 
 ## Queries_with_output
-[my directory](Query_output_in_preferred_column_format_YYYY-MM)
+[Query_output_in_preferred_column_format_YYYY-MM](Query_output_in_preferred_column_format_YYYY-MM)
 ### retention_unique_users_cohorts
 ```
   select *
@@ -48,9 +48,8 @@ Link - https://www.notion.so/Challenge-for-98089dfacedc40bdb5f7c47500297af6
 	for cdate
 	in (' + @months_list + ')
 	) as cohorts;	
-
 ```
-![retention_unique_users_cohorts_YYYY_MM_column_format_output_image]
+![retention_unique_users_cohorts_YYYY_MM_column_format_output_image] ./Query_output_in_preferred_column_format_YYYY-MM/retention_unique_users_cohorts_YYYY_MM_column_format_output_image.png 
 
 ### retention_session_cohorts
 ```
@@ -63,9 +62,8 @@ Link - https://www.notion.so/Challenge-for-98089dfacedc40bdb5f7c47500297af6
 	for cdate
 	in (' + @months_list + ')
 	) as cohorts;
-
 ```
-![retention_session_cohorts_YYYY_MM_column_format_output_image]\
+![retention_session_cohorts_YYYY_MM_column_format_output_image] ./Query_output_in_preferred_column_format_YYYY-MM/retention_session_cohorts_YYYY_MM_column_format_output_image.png
 
 ### retention_revenue_cohorts
 ```
@@ -78,13 +76,8 @@ Link - https://www.notion.so/Challenge-for-98089dfacedc40bdb5f7c47500297af6
 	for cdate
 	in (' + @months_list + ')
 	) as cohorts;		
-
 ```
-![retention_revenue_cohorts_YYYY_MM_column_format_output_image]
-
-
-
-
+![retention_revenue_cohorts_YYYY_MM_column_format_output_image] ./Query_output_in_preferred_column_format_YYYY-MM/retention_revenue_cohorts_YYYY_MM_column_format_output_image.png
 
 3. It is absolutely imperative that you specify what version of SQL you are using (My SQL, SQL Server, etc...). Also, please include a final output (either a JPG or a link to a dashbaord) of what the SQL executes to (as seen in the picture above).
 
