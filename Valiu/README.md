@@ -49,7 +49,7 @@
 	in (' + @months_list + ')
 	) as cohorts;	
 ```
-![retention_unique_users_cohorts_YYYY_MM_column_format_output_image] ./Query_output_in_preferred_column_format_YYYY-MM/retention_unique_users_cohorts_YYYY_MM_column_format_output_image.png 
+![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_unique_users_cohorts_YYYY_MM_column_format_output_image.png)
 
 ### retention_session_cohorts
 ```
@@ -63,7 +63,7 @@
 	in (' + @months_list + ')
 	) as cohorts;
 ```
-![retention_session_cohorts_YYYY_MM_column_format_output_image] ./Query_output_in_preferred_column_format_YYYY-MM/retention_session_cohorts_YYYY_MM_column_format_output_image.png
+![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_session_cohorts_YYYY_MM_column_format_output_image.png)
 
 ### retention_revenue_cohorts
 ```
@@ -77,7 +77,7 @@
 	in (' + @months_list + ')
 	) as cohorts;		
 ```
-![retention_revenue_cohorts_YYYY_MM_column_format_output_image] ./Query_output_in_preferred_column_format_YYYY-MM/retention_revenue_cohorts_YYYY_MM_column_format_output_image.png
+![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_revenue_cohorts_YYYY_MM_column_format_output_image.png)
 
 3. It is absolutely imperative that you specify what version of SQL you are using (My SQL, SQL Server, etc...). Also, please include a final output (either a JPG or a link to a dashbaord) of what the SQL executes to (as seen in the picture above).
 
