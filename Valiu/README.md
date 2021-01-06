@@ -29,8 +29,8 @@
 ```
 * Step 2 - Open a new query tab -> Copy sql query from [here](./Query_output_in_preferred_column_format_YYYY-MM/SQL%20Challenge%20for%20Business%20Intelligence%20Analyst%20Preferred%20with%20YYYY-MM%20Column%20Format.sql) -> paste and connect to the database where the table resides
 * Step 3 - There are two user inputs in this query.
-	* Step 3.1 - First one is to enter the @table_name (search (ctrl/cmd + F) for it if you cannot find it)
-	* Step 3.2 - Second one is to specify the @retention_calculation_monthly_metric (search (ctrl/cmd + F) for it if you cannot find it). It can be either -
+	* Step 3.1 - First one is to enter the `@table_name` (search (ctrl/cmd + F) for it if you cannot find it)
+	* Step 3.2 - Second one is to specify the `@retention_calculation_monthly_metric` (search (ctrl/cmd + F) for it if you cannot find it). It can be either -
 		* **retention_unique_users_cohorts** - Retention based on customers who have completed their successful transfers every month
 		* **retention_session_cohorts** - Retention rate based on number of sessions (or) 
 		* **retention_revenue_cohorts** - Retention rate based on the revenue each cohort produces in each month
