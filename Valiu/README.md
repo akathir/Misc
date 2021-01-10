@@ -14,7 +14,7 @@
 ## Instructions
 ### Before getting started, I would like to talk about the two folders in this location
 * [Query_output_in_preferred_column_format_YYYY-MM](Query_output_in_preferred_column_format_YYYY-MM)
-	* This is what you asked in the challange
+	* This is what you asked in the challange, This query outputs both cohort and cohort percentage tables. (Update as of 1/9)
 * [Query_output_with_column_in_month_number_format](Query_output_with_column_in_month_number_format)
 	* This is something I did out of curiosity. This query outputs both cohort and cohort percentage tables.
 
@@ -40,6 +40,7 @@
 [Query_output_in_preferred_column_format_YYYY-MM](Query_output_in_preferred_column_format_YYYY-MM)
 ### retention_unique_users_cohorts
 ```
+ --Cohorts 
   select *
   from 
 	(select customerid, join_date, cdate
@@ -48,9 +49,14 @@
 	(count(customerid)
 	for cdate
 	in (' + @months_list + ')
-	) as cohorts;	
+	) as cohorts;
+
+--Cohorts Percentage
+ select join_date'+@dynamic_sql_for_perc_calc+'
+ from '+@retention_calculation_monthly_metric+' join month_base_value_table on join_date = year_month
+ order by join_date
 ```
-![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_unique_users_cohorts_YYYY_MM_column_format_output_image.png)
+![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_unique_users_cohorts_and_percent_YYYY_MM_column_format_output_image.png)
 
 ### retention_session_cohorts
 ```
@@ -64,7 +70,7 @@
 	in (' + @months_list + ')
 	) as cohorts;
 ```
-![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_session_cohorts_YYYY_MM_column_format_output_image.png)
+![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_session_cohorts_and percent_YYYY_MM_column_format_output_image.png)
 
 ### retention_revenue_cohorts
 ```
@@ -79,7 +85,3 @@
 	) as cohorts;		
 ```
 ![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_revenue_cohorts_YYYY_MM_column_format_output_image.png)
-
-3. It is absolutely imperative that you specify what version of SQL you are using (My SQL, SQL Server, etc...). Also, please include a final output (either a JPG or a link to a dashbaord) of what the SQL executes to (as seen in the picture above).
-
-4. Please comment your SQL code when needed and provide instructions of how to execute the SQL script.
