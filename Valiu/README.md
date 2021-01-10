@@ -76,7 +76,7 @@
  from '+@retention_calculation_monthly_metric+' join month_base_value_table on join_date = year_month
  order by join_date	
 ```
-![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_session_cohorts_and percent_YYYY_MM_column_format_output_image.png)
+![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_session_cohorts_and_percent_YYYY_MM_column_format_output_image.png)
 
 ### retention_revenue_cohorts
 ```
