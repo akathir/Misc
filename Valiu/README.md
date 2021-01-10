@@ -54,12 +54,13 @@
 --Cohorts Percentage
  select join_date'+@dynamic_sql_for_perc_calc+'
  from '+@retention_calculation_monthly_metric+' join month_base_value_table on join_date = year_month
- order by join_date
+ order by join_date;
 ```
 ![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_unique_users_cohorts_and_percent_YYYY_MM_column_format_output_image.png)
 
 ### retention_session_cohorts
 ```
+  --Cohorts  
   select *
   from 
 	(select customerid, join_date, cdate
@@ -69,6 +70,11 @@
 	for cdate
 	in (' + @months_list + ')
 	) as cohorts;
+	
+--Cohorts Percentage
+ select join_date'+@dynamic_sql_for_perc_calc+'
+ from '+@retention_calculation_monthly_metric+' join month_base_value_table on join_date = year_month
+ order by join_date	
 ```
 ![output_image](./Query_output_in_preferred_column_format_YYYY-MM/retention_session_cohorts_and percent_YYYY_MM_column_format_output_image.png)
 
