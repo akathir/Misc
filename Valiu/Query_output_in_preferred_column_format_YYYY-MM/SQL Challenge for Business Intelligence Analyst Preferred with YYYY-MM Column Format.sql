@@ -29,6 +29,7 @@ drop view if exists distinct_months;
 drop view if exists retention_unique_users_cohorts;
 drop view if exists retention_session_cohorts;
 drop view if exists retention_revenue_cohorts;
+drop view if exists month_base_value_table;
 
 --#################### User Input ########################
 --Change @table_name
@@ -113,7 +114,7 @@ set @retention_revenue_cohorts = '
 							     '
 execute(@retention_revenue_cohorts);
 
---Execute query
+--Execute cohorts query
 declare @cohorts as nvarchar(max);
 
 set @cohorts = '
@@ -122,5 +123,38 @@ set @cohorts = '
 						 order by join_date;	  
 			   '
 execute(@cohorts);
-GO
 
+--Calculate diagonal percentage
+declare @month_base_value_string varchar(max) = '',
+		@month_base_value_table as nvarchar(max);
+
+select @month_base_value_string = @month_base_value_string + ' union SELECT TOP 1 '''+cdate+''' year_month, ['+cdate+'] as base_value FROM  '+@retention_calculation_monthly_metric+' WHERE ['+cdate+']>0 AND join_date = '''+cdate+''''
+from transfers_age_table_unique_users
+group by cdate
+order by cdate;
+
+set @month_base_value_table = ' 
+								create view month_base_value_table as
+									'+stuff(@month_base_value_string,1,7,'')+'
+							  '
+execute(@month_base_value_table);
+
+
+declare @dynamic_sql_for_perc_calc varchar(max) = '',
+		@cohorts_perc as nvarchar(max);
+
+--Percentage calculation sql query
+select @dynamic_sql_for_perc_calc = @dynamic_sql_for_perc_calc + ', str(("' + cdate + '"*100)/base_value) + ''%'' as "' + cdate + '"'
+from transfers_age_table_unique_users
+group by cdate
+order by cdate;
+
+--Execute cohorts percentage query
+set @cohorts_perc = ' 
+						select join_date'+@dynamic_sql_for_perc_calc+'
+						from '+@retention_calculation_monthly_metric+' join month_base_value_table on join_date = year_month
+						order by join_date
+					'
+execute(@cohorts_perc);
+
+GO
